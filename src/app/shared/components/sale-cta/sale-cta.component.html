@@ -1,0 +1,10 @@
+<a [routerLink]="['/auction', link()]"
+   class="transition-all duration-400 ease-in-out w-fit flex justify-center items-center gap-0.5 bg-chart-primary hover:bg-primary-highlight group-hover:bg-chart-primary/60 group-hover:rounded-2xl px-2 py-1 text-sm relative"
+   [class.h-10]="isFeatured()">
+  <app-price-layout [value]="price()" [dark]="false"/>
+  <span>//</span>
+  <div class="flex items-center">
+      <span class="text-box-trim">+ Details</span>
+    <app-arrow-icon [size]="18" [strokeWidth]="2"/>
+  </div>
+</a>

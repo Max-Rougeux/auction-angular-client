@@ -1,0 +1,18 @@
+@if(badge()) {
+  <div class="absolute inset-0  flex items-end "
+  [ngClass]="size() === 'xl' ? '-translate-x-4 translate-y-4' : '-translate-x-2 translate-y-2' ">
+    <div class="transition duration-400 relative aspect-cover group-hover:animate-pulse-scale"
+          [ngClass]="sizeClass()">
+      <img [ngSrc]="IMG_URL + badge() + '_badge.png'" fill [alt]="badge() + ' state badge'"
+           class="-rotate-20 relative dark:brightness-80"/>
+
+      @if (isGem()) {
+        <div class="absolute inset-0 rounded-full rotate-30">
+          <div class="relative scale-95 size-full rounded-full overflow-hidden after:absolute after:inset-0
+            after:bg-linear-to-r after:from-transparent after:via-white/40 after:to-transparent
+            after:animate-shimmer"></div>
+        </div>
+      }
+    </div>
+  </div>
+}
