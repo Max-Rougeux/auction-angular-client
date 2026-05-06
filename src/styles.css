@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
-
 @layer base {
   html {
     transition: color 400ms ease, background-color 400ms ease;
@@ -16,7 +14,6 @@
     --color-chart-primary: #cf7b66;
     --color-primary-highlight: #5A9020;
     --color-chart-hot: #FF4060;
-
   }
 }
 
@@ -25,7 +22,7 @@
   --color-primary-highlight: #DDF4AE;
   --color-chart-hot: #FF7288;
 
-  --shadow-light-card: inset 0 -120px 40px -50px rgba(223, 242, 254, .9);
+  --shadow-light-card: inset 0 -120px 40px -50px rgba(223, 242, 254, .6);
   --shadow-light-hover: inset 0 -80px 40px -50px rgba(223, 242, 254);
 
 

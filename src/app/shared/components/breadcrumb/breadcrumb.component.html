@@ -1,0 +1,17 @@
+<div class=" lg:max-w-5xl w-fit mb-2 font-medium ">
+  <div class="w-fit flex items-center p-3 text-xs bg-neutral-100">
+    <span class="text-box-trim font-mono font-bold ">/</span>
+    @for(item of items(); track $index; let last = $last) {
+      @if (item.route) {
+        <a [routerLink]="item.route" class="transition-all hover:underline text-box-trim">
+          {{ item.label }}
+        </a>
+      } @else {
+        <span class="text-box-trim font-medium">{{ item.label }}</span>
+      }
+      @if (!last) {
+        <span class="text-box-trim font-mono font-bold ">/</span>
+      }
+    }
+  </div>
+</div>

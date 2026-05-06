@@ -1,0 +1,32 @@
+<article
+  class="bg-neutral-950 group relative overflow-hidden outline-1 outline-neutral-800 flex flex-col h-full">
+    <!-- Item thumbnail -->
+    <div class="transition-all ease-in-out duration-400 relative min-h-50 flex flex-col justify-end mb-5">
+      <app-sale-thumbnail [sale]="data()"/>
+    </div>
+
+    <!-- Item info -->
+    <div class="h-full p-3 text-neutral-100 flex flex-col">
+      <div class="border opacity-40 p-1 mt-3 w-fit mb-2">
+        <p class="text-box-trim text-xs uppercase tracking-tighter font-mono">{{ data().item.category.label }}</p>
+      </div>
+      <!-- Item title -->
+      <h2 class="  uppercase text-xl tracking-tighter text-box-trim mb-10">
+        {{ data().item.name }}
+      </h2>
+      <!--      <app-paragraph content="#{{ data().item.category.label }}" class="lowercase truncate"/>-->
+      <!-- Item bid + link -->
+      <div class="mt-auto">
+        <div class="flex items-end gap-1">
+          <span class="text-6xl tracking-tighter font-light text-box-trim">
+            {{ data().currentPrice }}
+          </span>
+          <app-money-icon [size]="18"/>
+        </div>
+
+
+<!--        <app-sale-cta [link]="data().slug"-->
+<!--                      [price]="data().currentPrice > 0 ? data().currentPrice : data().startingPrice"/>-->
+      </div>
+    </div>
+</article>
