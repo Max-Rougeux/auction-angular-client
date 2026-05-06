@@ -1,0 +1,33 @@
+<script src="login.page.ts"></script>
+<header class="fixed w-full top-0">
+  <nav class="w-full z-10">
+    <div class="grid grid-cols-12 p-3 items-center">
+      <div class="col-span-10 flex gap-2 items-center">
+      </div>
+      <div class="col-span-2 ps-4">
+        <div class="relative aspect-square w-10 ms-auto">
+          <img [ngSrc]="environment.IMG_BASE_URL + '/icon/brand_logo_transparant.png'" fill alt="Project Logo"
+               class="aspect-square p-1.5 border">
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<main class="h-screen flex flex-col bg-linear-to-b from-neutral-300 from-70% to-sky-200">
+  <section class="p-5 text-sm max-w-3xl m-auto">
+    <h1 class="text-3xl font-medium text-neutral-800 mb-5">Log In</h1>
+
+    <!-- Oauth buttons -->
+    <div class="flex flex-col mb-10">
+      <app-oauth-input provider="google"/>
+      <app-oauth-input provider="github"/>
+    </div>
+
+    <!-- Login form -->
+    <app-login-form/>
+
+    <p class="text-neutral-700 mt-4 text-xs font-medium mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit, sed do eiusmod tempor incididunt ut labore et dolore
+      <br> magna aliqua.</p>
+  </section>
+</main>
