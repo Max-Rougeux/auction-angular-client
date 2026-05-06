@@ -36,7 +36,8 @@ export class LoginFormComponent {
 
         this.errorMsg = err.status === 401
           ? 'Invalid username or password.'
-          : 'Internal Server Error. Please try again later.';      }
+          : 'Internal Server Error. Please try again later.';
+      }
     })
   }
 }

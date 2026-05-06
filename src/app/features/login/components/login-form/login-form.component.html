@@ -1,5 +1,8 @@
 <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
 
+  @if (errorMsg) {
+    <p class="text-red-300/80 mt-2 text-xs text-end me-5">{{ errorMsg }}</p>
+  }
   <app-login-input type="email"
                    name="username"
                    placeholder="example: john.doe@example.com"
@@ -12,19 +15,16 @@
                    [(ngModel)]="password"
                    [hasError]="!!errorMsg"/>
 
-  @if (errorMsg) {
-    <p class="text-red-600/50 mt-2 text-xs mb-2">{{ errorMsg }}</p>
-  }
   <div class="mt-2">
     <button
-      class="transition duration-400 hover:opacity-90 text-neutral-300 rounded-full py-3 bg-neutral-800 w-full font-semibold pt-3.5"
+      class="transition duration-400 hover:opacity-90 tracking-tighter text-box-trim text-sm rounded-full py-3 bg-neutral-300 w-full font-semibold"
       type="submit"
       [disabled]="!loginForm.valid"
     >
       @if (state() === "submitting") {
         <div class="flex gap-2 justify-center animate-pulse">
           Login in
-          <div class="flex-none size-3 mt-0.5 animate-spin border-2 border-t-neutral-800 rounded-full"></div>
+          <div class="flex-none size-3 mt-0.5 animate-spin border-2  border-t-neutral-800 rounded-full"></div>
         </div>
       } @else if (state() === "error") {
           Something went wrong

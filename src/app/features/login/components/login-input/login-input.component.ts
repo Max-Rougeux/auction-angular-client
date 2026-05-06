@@ -14,9 +14,9 @@ import {FormsModule, NG_VALUE_ACCESSOR} from '@angular/forms';
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus {
       -webkit-box-shadow: 0 0 0 1000px transparent inset;
+      -webkit-text-fill-color: #fff;
       transition: background-color 5000s ease-in-out 0s;
     }
-
   `,
   providers: [
     {

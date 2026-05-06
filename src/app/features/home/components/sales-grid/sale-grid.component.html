@@ -2,7 +2,7 @@
 <!--  <app-marquee content="+SALE.LIST.END//"/>-->
 
   @if(showGrid()) {
-    <div class="flex h-full flex-nowrap overflow-hidden lg:grid grid-cols-5">
+    <div class="flex min-h-110 flex-nowrap overflow-hidden lg:grid grid-cols-5">
       @for (sale of sales(); track $index) {
         <app-sale-card ngmMotion
                        initial="initial"
