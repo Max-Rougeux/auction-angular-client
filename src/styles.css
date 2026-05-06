@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    transition: color 400ms ease, background-color 400ms ease;
+  }
+
+  *:not([class*="animate-"]):not([data-no-transition]) {
+    transition-property: color, background-color, border-color;
+    transition-duration: 400ms;
+  }
+  .dark {
+    --color-chart-primary: #cf7b66;
+    --color-primary-highlight: #5A9020;
+    --color-chart-hot: #FF4060;
+
+  }
+}
+
+@theme {
+  --color-chart-primary: #DEF0B8;
+  --color-primary-highlight: #DDF4AE;
+  --color-chart-hot: #FF7288;
+
+  --shadow-light-card: inset 0 -120px 40px -50px rgba(223, 242, 254, .9);
+  --shadow-light-hover: inset 0 -80px 40px -50px rgba(223, 242, 254);
+
+
+  --shadow-dark-card: inset 0 -120px 40px -50px rgb(36, 45, 49);
+  --shadow-dark-hover: inset 0 -80px 40px -50px rgb(36, 45, 49);
+
+  --animate-pulse-scale: pulse-scale 1s ease-in-out infinite;
+  @keyframes pulse-scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  --animate-marquee: marquee 120s linear infinite;
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  --animate-marquee-reverse: marquee-reverse 120s linear infinite;
+  @keyframes marquee-reverse {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(50%); }
+  }
+
+  --animate-shimmer: shimmer 3.5s infinite;
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url('/font/Nohemi-VF.ttf') format("opentype")
+}
+
+.bebas-font {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Nohemi", sans-serif;
+}
+
+
+.text-box-trim {
+  text-box: trim-both cap alphabetic;
+}
