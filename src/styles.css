@@ -58,7 +58,7 @@
 
 @font-face {
   font-family: "Nohemi";
-  src: url("/font/Nohemi-VF.ttf") format("opentype")
+  src: url('/font/Nohemi-VF.ttf') format("opentype")
 }
 
 .bebas-font {
@@ -75,5 +75,3 @@ body {
 .text-box-trim {
   text-box: trim-both cap alphabetic;
 }
-
-
