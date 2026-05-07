@@ -1,0 +1,20 @@
+<div class="">
+  <button
+    class="transition-all duration-300 ease-in-out relative cursor-pointer border hover:rounded-xl border-neutral-800 "
+    [ngClass]="isActive()
+          ? 'bg-neutral-100 text-neutral-900 font-medium pointer-events-none'
+          : 'hover:bg-neutral-900/80 text-neutral-300'"
+    (click)="onClick()">
+    <div class="flex p-2 relative pe-6">
+      <div class="text-xs text-box-trim relative tracking-tighter">
+        <span>{{ "+ " + category()?.label }}</span>
+        <div class="absolute left-full bottom-0 pointer-events-none">
+          <div class="px-0.5 font-medium">
+            <small>({{ count() }})</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </button>
+</div>
+

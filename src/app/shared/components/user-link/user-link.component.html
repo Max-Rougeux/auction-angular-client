@@ -1,0 +1,13 @@
+<a [routerLink]="['/profile', user().slug]" class="flex items-center gap-1 w-fit dark:text-neutral-200 group/user-badge">
+  <div class="relative overflow-hidden rounded-full size-10">
+    <img [ngSrc]="environment.IMG_BASE_URL + '/user/' + user().image"
+         [alt]="user().firstname + ' ' + user().lastname + ' thumbnail'"
+         class="object-cover dark:brightness-80" fill/>
+  </div>
+  <div class="flex-none">
+    <p class="text-xs/5 truncate uppercase font-semibold tracking-tighter group-hover/user-badge:underline mt-0.5">{{ user().firstname }} {{ user().lastname }}</p>
+    @if (extended()) {
+      <p class="text-neutral-500 text-xs/2 mb-0.5">{{ info() }}</p>
+    }
+  </div>
+</a>

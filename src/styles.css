@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
-
 @layer base {
   html {
     transition: color 400ms ease, background-color 400ms ease;
@@ -16,7 +14,6 @@
     --color-chart-primary: #cf7b66;
     --color-primary-highlight: #5A9020;
     --color-chart-hot: #FF4060;
-
   }
 }
 
@@ -25,7 +22,7 @@
   --color-primary-highlight: #DDF4AE;
   --color-chart-hot: #FF7288;
 
-  --shadow-light-card: inset 0 -120px 40px -50px rgba(223, 242, 254, .9);
+  --shadow-light-card: inset 0 -120px 40px -50px rgba(223, 242, 254, .6);
   --shadow-light-hover: inset 0 -80px 40px -50px rgba(223, 242, 254);
 
 
@@ -38,9 +35,9 @@
     50% { transform: scale(1.1); }
   }
 
-  --animate-marquee: marquee 120s linear infinite;
+  --animate-marquee: marquee 60s linear infinite;
   @keyframes marquee {
-    0% { transform: translateX(0); }
+    0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
   }
   --animate-marquee-reverse: marquee-reverse 120s linear infinite;
@@ -58,7 +55,7 @@
 
 @font-face {
   font-family: "Nohemi";
-  src: url('/font/Nohemi-VF.ttf') format("opentype")
+  src: url("/font/Nohemi-VF.ttf") format("opentype")
 }
 
 .bebas-font {
@@ -75,3 +72,5 @@ body {
 .text-box-trim {
   text-box: trim-both cap alphabetic;
 }
+
+
