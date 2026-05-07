@@ -1,3 +1,11 @@
 <div class="relative min-h-screen">
+  <div class="absolute inset-0 pointer-events-none z-10 ">
+    <div #wipe class="fixed left-0 top-full w-full h-full bg-neutral-950 z-50 flex items-center justify-center">
+      <div class="aspect-square w-18 relative">
+        <img [ngSrc]="environment.IMG_BASE_URL + '/icon/brand_logo_transparant.png'"
+             alt="project logo"  class="invert p-3 border" fill priority>
+      </div>
+    </div>
+  </div>
   <router-outlet/>
 </div>
