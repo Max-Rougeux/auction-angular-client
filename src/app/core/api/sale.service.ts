@@ -1,18 +1,19 @@
 import {inject, Injectable, signal} from '@angular/core';
-import {environment} from '../../../../../angular-client.old/src/environments/environment';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Sale} from "../../../../../angular-client.old/src/app/core/models/sale.model";
 import {tap} from 'rxjs';
-import {Meta} from '../../../../../angular-client.old/src/app/core/models/meta.model';
 import {ApiResponse} from '../models/response.model';
-
-const BASE_URL = `${environment.API_BASE_URL}/sales`;
+import {WebSocketService} from '../ui/web-socket.service';
+import {Sale, SalePriceUpdate} from '../models/sale.model';
+import {environment} from '../../../environments/environment';
+import {Meta} from '../models/meta.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SaleService {
+  private readonly API_URL = `${environment.API_BASE_URL}/sales`;
   private readonly http = inject(HttpClient);
+  private readonly wsService = inject(WebSocketService);
 
   private readonly _sale = signal<Sale | null>(null);
   sale = this._sale.asReadonly();
@@ -29,7 +30,7 @@ export class SaleService {
     if (category)
       params = params.set('category', category);
 
-    return this.http.get<ApiResponse<Sale[]>>(BASE_URL, {
+    return this.http.get<ApiResponse<Sale[]>>(this.API_URL, {
       params,
       withCredentials: true,
     }).pipe(
@@ -38,5 +39,17 @@ export class SaleService {
         this._meta.set(response.meta);
       })
     );
+  }
+
+  private updatePrice(update: SalePriceUpdate) {
+    this._sales.update(list =>
+      list.map(sale => sale.slug === update.slug ? { ...sale, currentPrice: update.currentPrice } : sale
+      )
+    );
+  }
+
+  constructor() {
+    this.wsService.register<SalePriceUpdate>('/topic/sales/price',
+      update => this.updatePrice(update));
   }
 }

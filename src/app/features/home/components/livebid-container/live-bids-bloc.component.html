@@ -1,0 +1,26 @@
+<div ngmMotion
+     [animate]="collapsed() ? 'closed' : 'open'"
+     [variants]="panelVariant"
+     class="relative overflow-hidden">
+  <div class="p-3">
+    <app-bloc-title title="live bids"/>
+  </div>
+  <div class="flex flex-col gap-1.5 px-3 pb-2">
+    @let presence = animatedListPresence.presence;
+
+    @for (bid of animatedListPresence.visibleItems(); track bid.id) {
+      <app-live-bid ngmMotion
+                    data-id="{{ bid.id }}" [data]="bid"
+                    [delay]="$index * 400"
+                    *ngmPresence="presence.visibleById()[bid.id!] ?? false"
+                    [variants]="listVariants"
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    [transition]="{ type: 'spring', stiffness: 200, damping: 25, duration: .8 }"/>
+    }
+  </div>
+</div>
+
+
+

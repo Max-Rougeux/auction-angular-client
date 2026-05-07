@@ -35,9 +35,12 @@
     </section>
 
     <!-- Activities -->
-<!--    <section class="lg:col-span-2 md:col-span-3 relative">-->
-<!--      <app-activity-panel/>-->
-<!--    </section>-->
+    <section class="lg:col-span-2 md:col-span-3 relative">
+
+      <app-breadcrumb  [items]="[{ label: 'activities' }]"/>
+
+      <app-live-bids-bloc/>
+    </section>
   </div>
   <hr>
 </main>

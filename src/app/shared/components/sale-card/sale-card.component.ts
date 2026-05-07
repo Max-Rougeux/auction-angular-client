@@ -3,12 +3,14 @@ import {Sale} from '../../../core/models/sale.model';
 import {environment} from '../../../../environments/environment.development';
 import {SaleThumbnailComponent} from '../sale-thumbnail/sale-thumbnail.component';
 import {MoneyIcon} from '../../icons/money.icon';
+import {ArrowIcon} from '../../icons/arrow.icon';
 
 @Component({
   selector: 'app-sale-card',
   imports: [
     SaleThumbnailComponent,
     MoneyIcon,
+    ArrowIcon,
   ],
   templateUrl: './sale-card.component.html',
 })

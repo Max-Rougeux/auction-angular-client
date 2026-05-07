@@ -7,12 +7,11 @@ import {environment} from '../../../environments/environment';
 import {Category} from '../models/category.model';
 import {ApiResponse} from '../models/response.model';
 
-const BASE_URL = `${environment.API_BASE_URL}/categories`;
-
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
+  private readonly API_URL = `${environment.API_BASE_URL}/categories`;
   private readonly http = inject(HttpClient);
   private readonly route = inject(ActivatedRoute);
 
@@ -27,7 +26,7 @@ export class CategoryService {
   );
 
   public getCategories() {
-    return this.http.get<ApiResponse<Category[]>>(`${BASE_URL}?filterByCount=true`, {withCredentials: true}).pipe(
+    return this.http.get<ApiResponse<Category[]>>(`${this.API_URL}?filterByCount=true`, {withCredentials: true}).pipe(
       tap(response => {
         this._categories.set(response.data!);
       })
