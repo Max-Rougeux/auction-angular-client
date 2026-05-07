@@ -11,6 +11,7 @@ import {LogOutIcon} from '../../icons/log-out.icon';
 import {SignalIcon} from '../../icons/signal.icon';
 import {BellIcon} from '../../icons/bell.icon';
 import {EclipseIcon} from '../../icons/eclipse.icon';
+import {MeService} from '../../../core/api/me.service';
 
 @Component({
   selector: 'app-topbar',
@@ -30,9 +31,16 @@ import {EclipseIcon} from '../../icons/eclipse.icon';
 export class TopbarComponent {
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
+  private readonly meService = inject(MeService);
+
+  profile = this.meService.profile;
 
   public logout(): void {
     this.authService.logout().subscribe(() => this.router.navigate(['/login']),);
+  }
+
+  constructor() {
+    this.meService.getProfile().subscribe();
   }
 
   protected readonly environment = environment;
