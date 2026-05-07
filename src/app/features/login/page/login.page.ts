@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
 import {environment} from '../../../../environments/environment.development';
 import {OauthInputComponent} from '../components/oauth-input/oauth-input.component';
 import {LoginFormComponent} from '../components/login-form/login-form.component';
@@ -10,7 +9,6 @@ import {BrandsComponent} from '../../home/components/brands/brands.component';
 @Component({
   selector: 'app-login',
   imports: [
-    NgOptimizedImage,
     OauthInputComponent,
     LoginFormComponent,
     ParagraphComponent,
