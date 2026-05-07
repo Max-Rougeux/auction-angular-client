@@ -4,8 +4,8 @@ import { WritableSignal } from '@angular/core';
 export function animateCounter(
   signal: WritableSignal<number>,
   to: number,
-  duration = 0.6,
-  ease = 'power2.out'
+  duration = 1,
+  ease = "power4.out"
 ) {
   const proxy = { value: signal() };
 

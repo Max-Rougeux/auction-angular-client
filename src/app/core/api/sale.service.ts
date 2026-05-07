@@ -1,4 +1,4 @@
-import {inject, Injectable, signal} from '@angular/core';
+import {inject, Injectable, Signal, signal, WritableSignal} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs';
 import {ApiResponse} from '../models/response.model';
@@ -24,6 +24,8 @@ export class SaleService {
   private readonly _meta = signal<Meta | null>(null);
   meta = this._meta.asReadonly();
 
+  private readonly _prices = new Map<string, WritableSignal<number>>()
+
   getSales(page: number = 1, category?: string | null) {
     let params = new HttpParams().set('page', page.toString());
 
@@ -35,21 +37,29 @@ export class SaleService {
       withCredentials: true,
     }).pipe(
       tap(response => {
+        const sales = response.data!;
+
+        sales.forEach(sale => {
+          this._prices.set(sale.slug, signal(sale.currentPrice))
+        })
+
         this._sales.set(response.data!);
         this._meta.set(response.meta);
+
       })
     );
   }
 
   private updatePrice(update: SalePriceUpdate) {
-    this._sales.update(list =>
-      list.map(sale => sale.slug === update.slug ? { ...sale, currentPrice: update.currentPrice } : sale
-      )
-    );
+    this._prices.get(update.slug)?.set(update.currentPrice);
   }
 
   constructor() {
     this.wsService.register<SalePriceUpdate>('/topic/sales/price',
       update => this.updatePrice(update));
+  }
+
+  getPrice(slug: string): Signal<number> {
+    return this._prices.get(slug)!.asReadonly();
   }
 }
