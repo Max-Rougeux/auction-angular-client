@@ -1,6 +1,7 @@
+<app-topbar/>
 <main
-  class="w-full flex flex-col border-b border-neutral-800">
-  <div class="grid grid-cols-10 border-t border-neutral-700">
+  class="w-full flex flex-col border-y border-neutral-800">
+  <div class="grid grid-cols-10">
     <!-- Filters -->
     <section class="lg:col-span-2 relative md:hidden lg:flex flex-col">
       <app-breadcrumb [items]="[{ label: 'filters'}]"/>
@@ -14,8 +15,8 @@
     <section class="lg:col-span-6 md:col-span-6 border-x border-neutral-800 relative">
       <app-breadcrumb [items]="[{ label: 'shop' }]"/>
 
-      <div class="*:p-3 py-3 grid grid-cols-5 border-b border-neutral-800">
-        <div class="flex flex-col col-span-2">
+      <div class="py-3 grid grid-cols-5 border-b border-neutral-800">
+        <div class="flex flex-col col-span-2 px-3">
           <h3 class="text-5xl mb-1.5 text-box-trim uppercase  tracking-tighter text-neutral-200">Curr.
             sales</h3>
           <div class="flex items-center mb-3 dark:text-neutral-400">
@@ -26,7 +27,7 @@
           </div>
 
         </div>
-        <div class="col-span-3">
+        <div class="col-span-3 pe-3">
           <app-paragraph [content]="content"/>
         </div>
       </div>
@@ -44,3 +45,4 @@
   </div>
   <hr>
 </main>
+<app-footer/>

@@ -12,6 +12,8 @@ import {SaleGridComponent} from '../components/sales-grid/sale-grid.component';
 import {PaginationComponent} from '../components/pagination/pagination.component';
 import {ParagraphComponent} from '../../../shared/components/paragraph/paragraph.component';
 import {LiveBidsBlocComponent} from '../components/livebid-container/live-bids-bloc.component';
+import {FooterComponent} from '../../../shared/layouts/footer/footer.component';
+import {TopbarComponent} from '../../../shared/layouts/topbar/topbar.component';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +24,9 @@ import {LiveBidsBlocComponent} from '../components/livebid-container/live-bids-b
     SaleGridComponent,
     PaginationComponent,
     ParagraphComponent,
-    LiveBidsBlocComponent
+    LiveBidsBlocComponent,
+    FooterComponent,
+    TopbarComponent
   ],
   templateUrl: './home.page.html',
 })

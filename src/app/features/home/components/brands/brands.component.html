@@ -1,0 +1,22 @@
+<div class="overflow-hidden select-none pointer-events-none py-4">
+  <div class="flex w-max animate-marquee items-center">
+    @for (brand of brands; track $index) {
+      <div class="relative h-20 w-40">
+        <img [ngSrc]="'brands/' + brand"
+             [alt]="brand"
+             class=" object-contain px-6"
+             style="mix-blend-mode: screen"
+             aria-hidden="true" fill/>
+      </div>
+    }
+    @for (brand of brands; track $index) {
+      <div class="relative h-10 w-40">
+        <img [ngSrc]="'brands/' + brand"
+             [alt]="brand"
+             class=" object-contain px-6"
+             style="mix-blend-mode: screen"
+             aria-hidden="true" fill/>
+      </div>
+    }
+  </div>
+</div>

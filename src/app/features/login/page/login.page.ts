@@ -5,6 +5,7 @@ import {OauthInputComponent} from '../components/oauth-input/oauth-input.compone
 import {LoginFormComponent} from '../components/login-form/login-form.component';
 import {TitleService} from '../../../core/ui/title.service';
 import {ParagraphComponent} from '../../../shared/components/paragraph/paragraph.component';
+import {BrandsComponent} from '../../home/components/brands/brands.component';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ import {ParagraphComponent} from '../../../shared/components/paragraph/paragraph
     NgOptimizedImage,
     OauthInputComponent,
     LoginFormComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    BrandsComponent
   ],
   templateUrl: './login.page.html',
 })

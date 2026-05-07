@@ -1,7 +1,7 @@
 @if (isFeatured()) {
   <app-countdown [endAt]="sale().endAt"/>
 } @else {
-  <div class="absolute inset-0 flex px-2 pt-1 invert">
+  <div class="absolute inset-0 flex p-2 invert">
     <app-likes [likes]="sale().likes"/>
   </div>
 }
