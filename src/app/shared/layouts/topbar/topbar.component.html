@@ -41,15 +41,15 @@
           Auction <br>
           <span class="text-sm text-box-trim opacity-60">Raise the Frequency</span></h1>
 
-        <div class="transition-all duration-400 relative aspect-square size-8 rounded-full overflow-hidden hover:scale-110">
-<!--          <img [ngSrc]="environment.IMG_BASE_URL + '/user/' + profile()?.image" fill class="transition-all object-cover"-->
-<!--               alt="project logo"/>-->
+        <div class="cursor-pointer transition-all duration-400 relative aspect-square size-7 rounded-full overflow-hidden hover:scale-110">
+          <img [ngSrc]="environment.IMG_BASE_URL + '/user/' + profile()?.image" fill class="transition-all object-cover"
+               alt="project logo"/>
         </div>
         <div
           class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl">
           <div
             class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <app-price-layout [value]="2364" class="scale-80"/>
+            <app-price-layout [value]="profile()!.credit" class="scale-80"/>
           </div>
         </div>
         <div
