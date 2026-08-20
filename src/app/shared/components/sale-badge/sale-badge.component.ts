@@ -25,11 +25,11 @@ export class SaleBadgeComponent {
 
     const sale = this.sale();
     if (sale) {
-      const endAt = new Date(sale.endAt).getTime();
-      const startAt = new Date(sale.startAt).getTime();
+      const endAt = new Date(sale.endedAt).getTime();
+      const startAt = new Date(sale.startedAt).getTime();
 
       const isEnding = (endAt - now) <= ONE_DAY && endAt > now;
-      const isHot = sale.currentPrice >= sale.startingPrice * 3;
+      const isHot = sale.currentPrice >= sale.startingPrice * 10;
       const isNew = (now - startAt) <= ONE_DAY;
 
       if (isEnding) return 'end';

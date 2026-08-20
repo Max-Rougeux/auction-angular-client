@@ -1,0 +1,45 @@
+@if (panelState() !== 'loading') {
+  <div class="relative h-13.5 overflow-hidden">
+    <div ngmMotion
+         *ngmPresence="panelState() !== 'form' || formState() === 'success'"
+         [initial]="{ y: '-100%' }"
+         [animate]="{ y: 0 }"
+         [exit]="{ y: '100%' }"
+         [transition]="{ type: 'spring', stiffness: 300, damping: 25, duration: 300 }"
+         class="absolute inset-0">
+      <app-auction-context [state]="panelState()" [sale]="sale()"/>
+    </div>
+    <div ngmMotion
+         *ngmPresence="panelState() === 'form'"
+         [initial]="{ y: '-100%' }"
+         [animate]="{ y: 0 }"
+         [exit]="{ y: '100%' }"
+         [transition]="{ type: 'spring', stiffness: 300, damping: 25, duration: 300 }"
+         class="absolute inset-0">
+      <div ngmMotion
+           *ngmPresence="formState() === 'idle' || formState() === 'error'"
+           [initial]="{ y: '-100%' }"
+           [animate]="{ y: 0 }"
+           [exit]="{ y: '100%' }"
+           [transition]="{ type: 'spring', stiffness: 300, damping: 25, duration: 300 }"
+           class="absolute inset-0"
+           [class.opacity-0]="panelState() !== 'form'">
+        <app-bid-stepper [min]="currentPrice()"
+                         [max]="maxBid()"
+                         [error]="formState() === 'error'"
+                         (bidSubmit)="onBidSubmit($event)"/>
+      </div>
+      <div ngmMotion
+           *ngmPresence="formState() === 'submitting'"
+           [initial]="{ y: '-100%' }"
+           [animate]="{ y: 0 }"
+           [exit]="{ y: '100%' }"
+           [transition]="{ type: 'spring', stiffness: 300, damping: 25, duration: 300 }"
+           class="absolute inset-0 flex border text-white border-neutral-800 items-center py-2.5 px-3 gap-5">
+        <div class="flex-none size-1.5 rounded-full bg-neutral-200 animate-pulse"></div>
+        <span class="text-xs text-box-trim">Submitting Bid</span>
+        <app-loader class="ms-auto" [size]="14"/>
+      </div>
+    </div>
+  </div>
+}
