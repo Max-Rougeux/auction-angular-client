@@ -1,20 +1,20 @@
 import { Component, input } from '@angular/core';
-import {UserPreview} from "../../../core/models/user.model";
+import {UserDetails} from "../../../core/models/user.model";
 import {RouterLink} from '@angular/router';
 import {NgOptimizedImage} from '@angular/common';
-import {environment} from '../../../../environments/environment';
+import {ImgUrlPipe} from '../../pipes/img-url.pipe';
 
 @Component({
   selector: 'app-user-link',
   imports: [
     RouterLink,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ImgUrlPipe
   ],
   templateUrl: './user-link.component.html',
 })
 export class UserLinkComponent {
-  user = input.required<UserPreview>();
+  user = input.required<UserDetails>();
   extended = input<boolean>(false);
   info = input<string | null>(null);
-  protected readonly environment = environment;
 }

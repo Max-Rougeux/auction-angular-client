@@ -2,6 +2,16 @@
   <app-bloc-title title="category" />
 </div>
 <div class="flex gap-1 flex-nowrap lg:flex-wrap lg:overflow-hidden overflow-x-scroll text-xs mb-1 px-3">
+  <app-filter-chip ngmMotion
+                   initial="initial"
+                   animate="animate"
+                   [variants]="itemVariants"
+                   [transition]="{ type: 'spring', stiffness: 300, damping: 25, delay: .2 }"
+                   (selectFilter)="onSelect($event)"
+                   [category]="all()"
+                   [isActive]="(all().slug ?? null) === (selectedCategory() ?? null)"
+                   [count]="all().count!"/>
+
   @for (category of categories(); track $index) {
     <app-filter-chip ngmMotion
                      initial="initial"
@@ -10,7 +20,7 @@
                      [transition]="{ type: 'spring', stiffness: 300, damping: 25, delay: .2 * ($index + 1) }"
                      (selectFilter)="onSelect($event)"
                      [category]="category"
-                     [isActive]="category.slug === selectedCategory()"
+                     [isActive]="(category.slug ?? null) === (selectedCategory() ?? null)"
                      [count]="category.count!"/>
   }
 </div>

@@ -1,12 +1,12 @@
 import {Component, inject, input} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import {PriceLayoutComponent} from '../price-layout/price-layout.component';
+import {PriceDisplayComponent} from '../price-display/price-display.component';
 import {ArrowIcon} from '../../icons/arrow.icon';
 
 @Component({
   selector: 'app-sale-cta',
   imports: [
-    PriceLayoutComponent,
+    PriceDisplayComponent,
     RouterLink,
     ArrowIcon,
   ],

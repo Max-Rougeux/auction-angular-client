@@ -1,18 +1,20 @@
-import {Item} from './item.model';
-import {UserPreview} from './user.model';
+import {Item, ItemDetails} from './item.model';
+import {UserDetails} from './user.model';
 
 export interface Sale {
+  id: number;
   slug: string;
+  startedAt: Date;
+  endedAt: Date;
   startingPrice: number;
   currentPrice: number;
-  startAt: Date;
-  endAt: Date;
   likes: number;
-  seller: UserPreview;
-  item: Item
+  state: string;
+  item: Item;
 }
 
-export interface SalePriceUpdate {
-  slug: string;
-  currentPrice: number;
+export interface SaleDetails extends Sale {
+  createdAt: Date;
+  item: ItemDetails;
+  owner: UserDetails;
 }

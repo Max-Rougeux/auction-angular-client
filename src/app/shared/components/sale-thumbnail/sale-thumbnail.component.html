@@ -1,16 +1,15 @@
-@if (isFeatured()) {
-  <app-countdown [endAt]="sale().endAt"/>
-} @else {
-  <div class="absolute inset-0 flex p-2 invert">
+@if(!isFeatured()) {
+  <div class="absolute inset-0 flex p-2">
     <app-likes [likes]="sale().likes"/>
   </div>
 }
 
-<div class="size-full flex flex-col items-end" [ngClass]="!isFeatured() ? '' : 'p-5'" >
-  <div class="relative transition-all ease-in-out duration-400  group-hover:translate-x-1/4 translate-x-1/3"
-  [ngClass]="isFeatured() ? 'w-1/2' : ''">
-    <img [src]="environment.IMG_BASE_URL + '/item/' + img()" [alt]="sale().item.name + ' thumbnail'"
-         class="transition-all ease-in-out duration-400 w-full shadow-slate-500/10 contrast-120 opacity-80"/>
+<div class="size-full flex flex-col" [class.items-end]="!isFeatured()">
+  <div class="relative transition-all ease-in-out duration-400 group-hover:translate-x-1/4 translate-x-1/3">
+    <img [ngSrc]="'item/' + sale().item.thumbnail.filename | imgUrl" [alt]="(sale() | saleName) + ' thumbnail'"
+         [width]="sale().item.thumbnail.width"
+         [height]="sale().item.thumbnail.height"
+         class="transition-all ease-in-out duration-400 shadow-2xl shadow-secondary contrast-120 dark:opacity-80"/>
     <app-sale-badge [sale]="sale()" [isGem]="sale().item.isGem" [size]="isFeatured() ? 'xl' : 'lg'" [alwaysAnimate]="isFeatured()"/>
   </div>
 </div>

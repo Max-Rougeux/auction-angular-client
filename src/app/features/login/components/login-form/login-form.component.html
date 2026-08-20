@@ -17,12 +17,12 @@
 
   <div class="mt-2">
     <button
-      class="transition duration-400 hover:opacity-90 tracking-tighter text-box-trim text-sm rounded-full py-3 bg-neutral-200 w-full font-semibold"
+      class="transition duration-400 hover:opacity-90 tracking-tighter text-box-trim text-base rounded-full py-3 bg-neutral-200 w-full font-semibold"
       type="submit"
       [disabled]="!loginForm.valid"
     >
       @if (state() === "submitting") {
-        <div class="flex gap-2 justify-center animate-pulse">
+        <div class="flex gap-1 justify-center animate-pulse">
           <span class="text-box-trim">
             Login in
           </span>
@@ -31,7 +31,7 @@
       } @else if (state() === "error") {
           Something went wrong
       } @else {
-        Log In
+        <span class="text-box-trim">Log In</span>
       }
     </button>
   </div>

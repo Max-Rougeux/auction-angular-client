@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {FormsModule, NgForm} from '@angular/forms';
 import {HttpErrorResponse} from '@angular/common/http';
 import {LoginInputComponent} from '../login-input/login-input.component';
-import {AuthService} from '../../../../core/api/auth.service';
+import {AuthService} from '../../../../core/action/auth.service';
 
 @Component({
   selector: 'app-login-form',
