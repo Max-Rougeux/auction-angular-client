@@ -1,0 +1,18 @@
+<div class="px-3 py-3">
+  <app-bloc-title title="Specs"/>
+  <div class="flex flex-col *:items-end">
+
+    @for (spec of specs(); track spec) {
+      <div ngmMotion
+           [initial]="{ opacity: 0, y: 40 }"
+           [animate]="{ opacity: 1, y: 0 }"
+           [transition]="{ type: 'spring', stiffness: 300, damping: 25, delay: .2 * $index + .3 }"
+           class="flex justify-between border-b last:border-0 py-2 border-neutral-800 text-white tracking-tighter text-xs">
+        <div class="opacity-50">
+          <app-paragraph [content]="spec.label"/>
+        </div>
+        <app-paragraph [content]="spec.value"/>
+      </div>
+    }
+  </div>
+</div>

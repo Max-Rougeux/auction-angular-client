@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import {environment} from '../../../../../../client-old/src/environments/environment';
 import {NgOptimizedImage} from '@angular/common';
-import {BrandsComponent} from '../../../features/home/components/brands/brands.component';
+import {BrandsComponent} from '../../components/brands/brands.component';
+import {ImgUrlPipe} from '../../pipes/img-url.pipe';
 
 @Component({
   selector: 'app-footer',
-  imports: [NgOptimizedImage, BrandsComponent],
+  imports: [NgOptimizedImage, BrandsComponent, ImgUrlPipe],
   templateUrl: './footer.component.html',
 })
-export class FooterComponent {
-
-  protected readonly environment = environment;
-}
+export class FooterComponent {}

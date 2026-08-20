@@ -5,7 +5,12 @@ import {Component, input} from '@angular/core';
   imports: [],
   template: `
     <svg [attr.width]="size()" [attr.height]="size()" [attr.fill]="fill()? 'currentColor' : 'none' " stroke="currentColor" [attr.stroke-width]="strokeWidth()" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-      <path d='M10.183 3.183A9 9 0 0 0 3 12a9 9 0 0 0 17.817 1.817M10.183 3.183a9 9 0 0 1 10.633 10.633M10.184 3.184c-1.268 6.188 4.533 11.884 10.634 10.634'/>
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+      <path d="M12 3l0 18"/>
+      <path d="M12 9l4.65 -4.65"/>
+      <path d="M12 14.3l7.37 -7.37"/>
+      <path d="M12 19.6l8.85 -8.85"/>
     </svg>
   `,
   styles: ``,

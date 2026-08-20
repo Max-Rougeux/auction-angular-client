@@ -10,10 +10,10 @@
          [variants]="itemVariants"
          [transition]="{ type: 'spring', stiffness: 300, damping: 25, delay: .2 * $index }">
       <button
-        class="transition-all duration-300 ease-in-out relative cursor-pointer border hover:rounded-xl border-neutral-800"
+        class="transition-all duration-300 ease-in-out relative cursor-pointer border hover:rounded-xl border-secondary"
         [ngClass]="page === meta()?.page
-          ? 'bg-neutral-100 text-neutral-900 font-semibold pointer-events-none'
-          : 'hover:bg-neutral-900/80 text-neutral-300'"
+          ? 'bg-primary-highlight text-primary font-semibold pointer-events-none'
+          : 'hover:bg-primary-hover text-font-primary'"
         (click)="goToPage(page)">
         <div class="flex">
           <div class="text-xs text-box-trim p-2 ">

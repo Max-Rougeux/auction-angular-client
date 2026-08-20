@@ -7,4 +7,9 @@ import { Component, input } from '@angular/core';
 })
 export class ParagraphComponent {
   content = input.required<string>();
+  alignment = input<"start" | "center" | "end" | "justify">("start");
+
+  textAlign() {
+    return 'text-' + this.alignment();
+  }
 }

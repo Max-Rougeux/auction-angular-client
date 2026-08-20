@@ -1,0 +1,14 @@
+<div class="px-3 py-3">
+  <app-bloc-title title="Tags"/>
+  <div class="flex flex-wrap gap-1 pe-15  mt-3 opacity-40">
+    @for (tag of tags(); track tag) {
+      <div ngmMotion
+           [initial]="{ opacity: 0, y: 40 }"
+           [animate]="{ opacity: 1, y: 0 }"
+           [transition]="{ type: 'spring', stiffness: 300, damping: 25, delay: .2 * $index + .5 }"
+           class="border p-1 text-box-trim text-white text-xs uppercase">
+        <small class="text-box-trim">{{ tag }}</small>
+      </div>
+    }
+  </div>
+</div>

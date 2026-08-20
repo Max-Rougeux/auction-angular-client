@@ -1,18 +1,15 @@
-import {UserPreview} from './user.model';
+import {User} from './user.model';
 
 export interface Bid {
-  id?: number;
+  id: number;
   amount: number;
-  slug: string;
   time: Date;
-  user: UserPreview;
+  slug: string;
+  bidder: User;
 }
 
-export interface UserBid {
-  id?: number;
+export interface BidPoint {
   amount: number;
-  slug: string;
-  image: string;
   time: Date;
-  highest: boolean;
+  user: string;
 }

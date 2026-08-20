@@ -1,116 +1,74 @@
-<header class="">
-  <div class="w-full grid grid-cols-10 *:px-1.5 *:py-1.5">
-    <div class="col-start-3 col-end-9 border-x border-neutral-800 relative">
-      <div class="pb-10"></div>
-    </div>
-    <div class="col-start-1 col-end-3">
-      <div class="flex gap-1.5 h-full">
-        <div
-          class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl w-9">
-          <div
-            class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <div class="relative dark:text-neutral-200">
+@if(profile(); as profile) {
+  <header class="">
+    <div class="w-full grid grid-cols-10 *:px-1.5 *:py-1.5">
+      <div class="col-start-3 col-end-9 border-x border-neutral-800 relative">
+        <div class="pb-10"></div>
+      </div>
+      <div class="col-start-1 col-end-3">
+        <div class="flex gap-1.5 h-full">
+          @if (isHome()) {
+            <app-panel-button [disabled]="true">
               <app-filter-off-icon [size]="16" [strokeWidth]="2.5"/>
-            </div>
-          </div>
-        </div>
-        <div
-          class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl w-9">
-          <div
-            class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <div class="relative dark:text-neutral-200">
+            </app-panel-button>
+            <app-panel-button [disabled]="true">
               <app-search-icon [size]="18" [strokeWidth]="2.5"/>
-            </div>
-          </div>
-        </div>
-        <div class="ms-auto transition-all duration-400 relative aspect-square opacity-90 size-8 hover:scale-110">
-          <img [ngSrc]="'favicon.ico'" fill class="transition-all object-cover invert dark:invert-0 "
-               alt="project logo"/>
-          <div class="absolute inset-0 flex justify-end">
-            <div class="size-1.5 relative rounded-full overflow-hidden bg-neutral-950 translate-y-0.5">
-              <div class="absolute inset-0 bg-chart-hot animate-pulse"></div>
-            </div>
+            </app-panel-button>
+          }
+          <div class="ms-auto transition-all duration-400 relative aspect-square opacity-90 size-8 hover:scale-110">
+            <img [ngSrc]="'favicon.ico'" fill class="transition-all object-cover"
+                 alt="project logo"/>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-span-6 border-x border-neutral-800 pt-10 px-1.5">
-      <div class="flex h-full gap-1.5 justify-end items-center">
-        <h1
-          class="me-auto uppercase  text-box-trim text-lg/3 tracking-tighter dark:text-neutral-200">
-          Auction <br>
-          <span class="text-sm text-box-trim opacity-60">Raise the Frequency</span></h1>
+      <div class="col-span-6 border-x border-neutral-800 pt-10 px-1.5">
+        <div class="flex gap-1.5 h-full">
+          <div class="flex flex-col me-auto justify-end pb-1">
+            <h1
+              class="uppercase  text-box-trim text-base/3 tracking-tighter text-font-primary">
+              Auction <br>
+              <span class="text-xs text-box-trim opacity-60 italic">Raise the Frequency</span></h1>
+          </div>
 
-        <div class="cursor-pointer transition-all duration-400 relative aspect-square size-7 rounded-full overflow-hidden hover:scale-110">
-          <img [ngSrc]="environment.IMG_BASE_URL + '/user/' + profile()?.image" fill class="transition-all object-cover"
-               alt="project logo"/>
-        </div>
-        <div
-          class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl">
+
           <div
-            class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <app-price-layout [value]="profile()!.credit" class="scale-80"/>
+            class="cursor-pointer transition-all duration-400 relative aspect-square size-8 rounded-full overflow-hidden hover:scale-110">
+            <img [ngSrc]="'user/' + profile.thumbnail.filename | imgUrl" fill class="transition-all object-cover"
+                 alt="project logo"/>
           </div>
+          <app-user-credit/>
+          <app-panel-button ngmMotion
+                            [whileTap]="{ scale: .9 }"
+                            [disabled]="true">
+            <app-add-icon [size]="20" [strokeWidth]="2.5"/>
+          </app-panel-button>
+          <app-panel-button ngmMotion
+                            [whileTap]="{ scale: .9 }"
+                            (click)="logout()">
+            <app-log-out-icon [size]="14" [strokeWidth]="2.5"/>
+          </app-panel-button>
         </div>
-        <div
-          class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl w-9">
-          <div
-            class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <div class="relative dark:text-neutral-200">
-              <app-add-icon [size]="18" [strokeWidth]="2"/>
-            </div>
-          </div>
-        </div>
-        <div
-          class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl w-9">
-          <button (click)="logout()"
-                  class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <div class="relative dark:text-neutral-200">
-              <app-log-out-icon [size]="14" [strokeWidth]="2.5"/>
-            </div>
-          </button>
+      </div>
+      <div class="col-span-2">
+        <div class="flex gap-1.5 h-full">
+          <app-panel-button ngmMotion
+                            [whileTap]="{ scale: .9 }"
+                            (click)="panelService.setLeftPanel('feed')"
+                            [isActive]="panelService.leftPanel() === 'feed'"
+                            [showIndicator]="true">
+            <app-signal-icon [size]="16" [strokeWidth]="1"/>
+          </app-panel-button>
+          <app-panel-button ngmMotion
+                            [whileTap]="{ scale: .9 }"
+                            (click)="panelService.toggleLeftPanel()"
+                            [isActive]="panelService.leftPanel() === 'notification'"
+                            [showIndicator]="notificationService.notifications.visibleItems().some(n => !n.read)">
+            <app-bell-icon [size]="17" [strokeWidth]="1.7" [fill]="false"/>
+          </app-panel-button>
+<!--          <app-panel-button [disabled]="true">-->
+<!--            <app-eclipse-icon [size]="18" [strokeWidth]="2"/>-->
+<!--          </app-panel-button>-->
         </div>
       </div>
     </div>
-    <div class="col-span-2">
-      <div class="flex gap-1.5 h-full">
-        <div
-          class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl w-9">
-          <div
-            class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <div class="relative dark:text-neutral-200 pt-0.5">
-              <app-signal-icon [size]="16" [strokeWidth]="1"/>
-              <div class="absolute inset-0 flex justify-end">
-                <div class="size-1.5 relative rounded-full overflow-hidden bg-neutral-950 translate-x-0.5">
-                  <div class="absolute inset-0 bg-chart-hot animate-pulse"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl w-9">
-          <div
-            class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <div class="relative dark:text-neutral-200">
-              <app-bell-icon [size]="17" [strokeWidth]="1.7" [fill]="false"/>
-              <div class="absolute inset-0 flex justify-end">
-                <div class="size-1.5 relative rounded-full overflow-hidden bg-neutral-950 translate-x-0.5">
-                  <div class="absolute inset-0 bg-chart-hot animate-pulse"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="group outline outline-neutral-800 h-full transition-all duration-400 hover:rounded-xl w-9">
-          <button class="cursor-pointer transition-all duration-400 px-1 flex items-center justify-center size-full group-hover:bg-neutral-900/90 group-hover:rounded-xl">
-            <div class="relative dark:text-neutral-200">
-              <app-eclipse-icon [size]="16" [strokeWidth]="2"/>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+  </header>
+}

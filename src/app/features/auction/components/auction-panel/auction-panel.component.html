@@ -1,0 +1,30 @@
+<div class="flex flex-col gap-1.5 mb-5 px-3 ">
+  <div class="text-white flex flex-col gap-3 p-3 border border-neutral-800 relative overflow-hidden">
+    <div class="flex justify-between">
+      <span class="text-xs opacity-40 text-box-trim">Curr. Price</span>
+      <div class="flex gap-0.5 ms-auto opacity-40">
+        <span class="text-xs text-box-trim mt-0.5">
+          started at {{ sale().startingPrice }}
+        </span>
+        <app-money-icon [size]="12"/>
+      </div>
+    </div>
+    <app-animated-price [sale]="sale()"/>
+  </div>
+  <div class="grid grid-cols-3 gap-1.5 *:text-white">
+    <div class="border border-neutral-800 p-3 flex flex-col items-center gap-3">
+      <span class="text-xs text-box-trim opacity-40">Bidders</span>
+      <span class="text-xl text-box-trim">{{ uniqueBidders() }}</span>
+    </div>
+    <div class="border border-neutral-800 p-3 flex flex-col items-center gap-3">
+      <span class="text-xs text-box-trim opacity-40">Bids</span>
+      <span class="text-xl text-box-trim">{{ bidPoints().length }}</span>
+    </div>
+    <div class="border border-neutral-800 p-3 flex flex-col items-center gap-3">
+      <span class="text-xs text-box-trim opacity-40">Views</span>
+      <span class="text-xl text-box-trim">1.2K</span>
+    </div>
+  </div>
+  <app-form-panel [sale]="sale()"/>
+</div>
+

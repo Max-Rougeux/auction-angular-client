@@ -1,9 +1,16 @@
 import {Category} from './category.model';
+import {Image} from './image.model';
 
 export interface Item {
-  name: string;
-  description: string;
-  image: string;
-  category: Category;
+  brand: string;
+  model: string;
   isGem: boolean;
+  category: Category;
+  thumbnail: Image;
+}
+
+export interface ItemDetails extends Item {
+  description: string;
+  condition: string;
+  year: number;
 }

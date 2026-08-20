@@ -1,24 +1,32 @@
-<main class="h-screen flex flex-col  bg-bottom bg-cover">
-  <section class="h-full pb-6 flex flex-col justify-end border-b border-neutral-800 w-full overflow-hidden bg-neutral-950/95">
-    <div class="max-w-xl mx-auto text-sm">
-      <h1 class="text-3xl font-medium text-neutral-200 mb-5">Log In</h1>
-      <!-- Oauth buttons -->
-      <div class="flex flex-col mb-10">
-        <app-oauth-input provider="google"/>
-        <app-oauth-input provider="github"/>
+<main class="h-screen flex flex-col">
+  <section class="h-full pb-6 flex flex-col justify-end border-b border-neutral-800 w-full overflow-hidden">
+    <div class="grid grid-cols-9 gap-3">
+      <div class="col-span-3">
+        <div class="relative size-12 ms-auto">
+          <img ngSrc="/favicon.ico" alt="project logo" fill>
+        </div>
       </div>
+      <div class="col-start-4 col-end-7">
+        <div class="text-sm">
+          <h1 class="text-6xl/13 text-white font-medium tracking-tighter text-box-trim mb-10 uppercase">Find it. <br><span class="opacity-60">Bid it.</span>
+            <span class="opacity-30"> Own it.</span></h1>
+          <!-- Oauth buttons -->
+          <div class="flex flex-col mb-10 opacity-30 ">
+            <app-oauth-input provider="google"/>
+            <app-oauth-input provider="github"/>
+          </div>
 
-      <!-- Login form -->
-      <app-login-form/>
+          <!-- Login form -->
+          <app-login-form/>
 
-      <div class="mt-3">
-        <app-paragraph content="Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"/>
+          <div class="mt-3 text-font-primary/60">
+            <app-paragraph content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"/>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
-  <section class="h-3/10 bg-neutral-950">
+  <section class="h-3/10 ">
     <app-brands/>
   </section>
 </main>

@@ -1,10 +1,12 @@
 import {Component, computed, input} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
+import {ImgUrlPipe} from '../../../../shared/pipes/img-url.pipe';
 
 @Component({
   selector: 'app-oauth-input',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    ImgUrlPipe
   ],
   templateUrl: './oauth-input.component.html',
 })

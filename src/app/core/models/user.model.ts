@@ -1,25 +1,15 @@
-export interface User {
-  id: string;
-  username: string;
-  accessToken: string;
-  expireAt: number;
-  roles: string[];
-}
+import {Image} from './image.model';
 
-export interface ProfileView {
+export interface User {
   slug: string;
   firstname: string;
   lastname: string;
-  image: string;
+  createdAt: Date;
+  thumbnail: Image;
+}
+
+export interface UserDetails extends User {
   phone: string;
   credit: number;
-  createAt: Date
-}
-
-export interface UserPreview {
-  firstname: string;
-  lastname: string;
-  slug: string;
-  image: string;
-  createAt: Date;
+  isAdmin: boolean;
 }

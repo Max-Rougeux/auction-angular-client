@@ -1,8 +1,8 @@
 @if(badge()) {
   <div class="absolute inset-0  flex items-end "
-  [ngClass]="size() === 'xl' ? '-translate-x-4 translate-y-4' : '-translate-x-2 translate-y-2' ">
+  [ngClass]="size() === 'xl' ? '-translate-x-8 translate-y-8' : '-translate-x-2 translate-y-2' ">
     <div class="transition duration-400 relative aspect-cover group-hover:animate-pulse-scale"
-          [ngClass]="sizeClass()">
+          [ngClass]="sizeClass()" [class.animate-pulse-scale]="alwaysAnimate()">
       <img [ngSrc]="IMG_URL + badge() + '_badge.png'" fill [alt]="badge() + ' state badge'"
            class="-rotate-20 relative dark:brightness-80"/>
 
