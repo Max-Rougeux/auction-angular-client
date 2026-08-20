@@ -1,6 +1,6 @@
 # AngularClient
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9. [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Max-Rougeux/auction-angular-client)
 
 ## Development server
 
