@@ -47,9 +47,9 @@ npm install
 ng serve
 ```
 
----
-
 Application accessible sur `http://localhost:4200/`.
+
+---
 
 ## Fonctionnalités
  
