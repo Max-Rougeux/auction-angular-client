@@ -1,59 +1,83 @@
-# AngularClient
+# Auction Angular Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9. [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Max-Rougeux/auction-angular-client)
+Client web du projet Auction, développé en Angular 21 avec une architecture basée sur les Signals (state réactif) et des mises à jour temps réel via WebSocket (STOMP).
 
-## Development server
+[![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev) [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![WebSocket](https://img.shields.io/badge/WebSocket-STOMP-orange)]()
 
-To start a local development server, run:
+---
+
+## API Backend
+
+Serveur REST du projet, développé en Spring Boot 4 / Java 21, avec sécurité JWT (refresh token rotatif) et persistance multi-profils (mock, JDBC, JPA).
+
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.6-brightgreen)](https://github.com/Max-Rougeux/auction-spring-api)
+
+---
+
+## Stack technique
+
+| Couche | Technologies |
+|---|---|
+| Framework | Angular 21, Standalone Components, Signals |
+| Langage | TypeScript 5 |
+| Temps réel | WebSocket (STOMP over SockJS) |
+| Data viz | Apache eCharts |
+| Animations | GSAP |
+| Style | SCSS |
+| Tests | Vitest |
+
+---
+
+## Prérequis
+
+- Node.js ≥ 18
+- Angular CLI (`npm install -g @angular/cli`)
+- [API backend](https://github.com/Max-Rougeux/auction-spring-api) démarrée en local
+
+---
+
+## Installation
 
 ```bash
+git clone https://github.com/Max-Rougeux/auction-angular-client.git
+cd auction-angular-client
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Application accessible sur `http://localhost:4200/`.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Fonctionnalités
 
-```bash
-ng generate component component-name
+| Domaine | Détail |
+|---|---|
+| Enchères temps réel | Mise à jour du prix et de l'historique via STOMP, sans rechargement |
+| Notifications de surenchère | Topic `/user/queue/credit` par utilisateur, payload typé en union discriminée |
+| Crédit utilisateur | Compteur animé (GSAP), feedback couleur selon le sens du mouvement |
+| Graphique des enchères | eCharts, dégradé personnalisé, tooltip avec identité de l'enchérisseur |
+| Auth | JWT avec refresh automatique, cookies `HttpOnly` |
+| Transitions | `ngmMotion` / `ngmPresence` entre états de l'application |
+
+---
+
+## Architecture
+
+| Aspect | Choix |
+|---|---|
+| État applicatif | `panelState` en `computed signal`, union type discriminée |
+| Données de vente | `SaleResolver`, préchargement avant navigation |
+| Logique métier | `BidStepper` extrait en classe TS pure, testable hors framework |
+| Cycle de vie | Gestion des souscriptions via `takeUntilDestroyed` |
+
+---
+
+## Structure du projet
+
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+src/app/
+├── core/          # Services transverses (auth, websocket, credit...)
+├── features/      # Modules fonctionnels (enchères, ventes, profil...)
+├── shared/        # Composants, pipes et directives réutilisables
+└── models/        # Interfaces et types partagés
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
