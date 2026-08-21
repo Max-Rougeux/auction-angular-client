@@ -100,16 +100,9 @@ src/
 │   │   └── ui/            # services ui
 │   ├── features/
 │   │   ├── auction/
-│   │   │   ├── components/ 
-│   │   │   └── page/
 │   │   ├── home/
-│   │   │   ├── components/ 
-│   │   │   └── page/
 │   │   ├── login/
-│   │   │   ├── components/ 
-│   │   │   └── page/
 │   │   └── not-found/
-│   │       └── page/
 │   └── shared/
 │       ├── components/     # composants réutilisables
 │       ├── icons/          # icônes SVG (bell, gavel, lock, money, signal...)
