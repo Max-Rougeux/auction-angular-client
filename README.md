@@ -2,7 +2,7 @@
 
 Client web du projet Auction, développé en Angular 21 avec une architecture basée sur les Signals (state réactif) et des mises à jour temps réel via WebSocket (STOMP).
 
-[![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev) [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![WebSocket](https://img.shields.io/badge/WebSocket-STOMP-orange)]()
+[![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev) [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com) [![WebSocket](https://img.shields.io/badge/WebSocket-STOMP-orange)]()
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Max-Rougeux/auction-angular-client)
 
 ---
@@ -24,10 +24,9 @@ Serveur REST du projet, développé en Spring Boot 4 / Java 21, avec sécurité 
 | Framework | Angular 21, Standalone Components, Signals |
 | Langage | TypeScript 5 |
 | Temps réel | WebSocket (STOMP over SockJS) |
-| Data viz | Apache eCharts |
+| Data viz | eCharts |
 | Animations | GSAP |
-| Style | SCSS |
-| Tests | Vitest |
+| Style | Tailwind CSS |
 
 ---
 
