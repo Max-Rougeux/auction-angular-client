@@ -85,11 +85,36 @@ Autres points d'architecture :
 ---
 
 ## Structure du projet
-
+ 
 ```
-src/app/
-├── core/          # Services transverses (auth, websocket, credit...)
-├── features/      # Modules fonctionnels (enchères, ventes, profil...)
-├── shared/        # Composants, pipes et directives réutilisables
-└── models/        # Interfaces et types partagés
+src/
+├── app/
+│   ├── core/
+│   │   ├── action/        # AuthService, BiddingService
+│   │   ├── api/           # BidService, CategoryService, MeService, SaleService
+│   │   ├── guards/        # authGuard, loginGuard, wipeGuard
+│   │   ├── interceptors/  # authInterceptor
+│   │   ├── models/        # Bid, Brand, Category, Image, Item, Response, Sale, User
+│   │   ├── resolvers/     # meResolver, saleResolver
+│   │   ├── types/         # common.ts, constants.ts
+│   │   └── ui/            # services ui
+│   ├── features/
+│   │   ├── auction/
+│   │   │   ├── components/ 
+│   │   │   └── page/
+│   │   ├── home/
+│   │   │   ├── components/ 
+│   │   │   └── page/
+│   │   ├── login/
+│   │   │   ├── components/ 
+│   │   │   └── page/
+│   │   └── not-found/
+│   │       └── page/
+│   └── shared/
+│       ├── components/     # composants réutilisables
+│       ├── icons/          # icônes SVG (bell, gavel, lock, money, signal...)
+│       ├── layouts/        # credit, feed, footer, notification, toast, topbar
+│       ├── pipes/          # pipes angular
+│       └── utils/          # animations
+└── environments/
 ```
