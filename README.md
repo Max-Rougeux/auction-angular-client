@@ -25,7 +25,7 @@ Serveur REST du projet, développé en Spring Boot 4 / Java 21, avec sécurité 
 | Langage | TypeScript 5 |
 | Temps réel | WebSocket (STOMP over SockJS) |
 | Data viz | eCharts |
-| Animations | GSAP |
+| Animations | GSAP, ng-motion |
 | Style | Tailwind CSS |
 
 ---
