@@ -47,30 +47,40 @@ npm install
 ng serve
 ```
 
+---
+
 Application accessible sur `http://localhost:4200/`.
 
-
 ## Fonctionnalités
-
+ 
 | Domaine | Détail |
 |---|---|
 | Enchères temps réel | Mise à jour du prix et de l'historique via STOMP, sans rechargement |
-| Notifications de surenchère | Topic `/user/queue/credit` par utilisateur, payload typé en union discriminée |
-| Crédit utilisateur | Compteur animé (GSAP), feedback couleur selon le sens du mouvement |
+| Notifications de surenchère | Topic `/user/queue/refund` par utilisateur, payload typé en union discriminée |
+| Prix en direct | Topic public `/topic/sales/price`, animation par slug via `PriceAnimService` |
 | Graphique des enchères | eCharts, dégradé personnalisé, tooltip avec identité de l'enchérisseur |
-| Auth | JWT avec refresh automatique, cookies `HttpOnly` |
-| Transitions | `ngmMotion` / `ngmPresence` entre états de l'application |
-
+| Auth | JWT avec refresh transparent sur 401, cookies `HttpOnly` |
+| Transitions | Overlay de transition GSAP piloté par `WipeService` |
+| Notifications & toasts | `ToastService` / `NotificationService` pour les alertes système |
+ 
 ---
-
-## Architecture
-
-| Aspect | Choix |
-|---|---|
-| État applicatif | `panelState` en `computed signal`, union type discriminée |
-| Données de vente | `SaleResolver`, préchargement avant navigation |
-| Logique métier | `BidStepper` extrait en classe TS pure, testable hors framework |
-| Cycle de vie | Gestion des souscriptions via `takeUntilDestroyed` |
+ 
+## Architecture (`src/app/core`)
+ 
+| Répertoire | Rôle | Éléments clés |
+|---|---|---|
+| `action/` | Services HTTP métier | `AuthService`, `BiddingService` |
+| `api/` | Données et état des entités | `SaleService`, `BidService`, `MeService` |
+| `models/` | Contrats TypeScript | `Sale`, `User`, `Item` |
+| `guards/` | Protection des routes | `authGuard`, `loginGuard`, `wipeGuard` |
+| `interceptors/` | Middleware HTTP | `authInterceptor` |
+| `resolvers/` | Préchargement des données | `meResolver`, `saleResolver` |
+| `ui/` | Services transverses UI | `WebSocketService`, `TokenService`, `WipeService` |
+ 
+Autres points d'architecture :
+- État applicatif (`panelState`) en `computed signal`, union type discriminée
+- Logique métier (`BidStepper`) extraite en classe TS pure, testable hors framework
+- Gestion du cycle de vie des souscriptions via `takeUntilDestroyed`
 
 ---
 
