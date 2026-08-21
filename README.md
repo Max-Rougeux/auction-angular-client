@@ -3,6 +3,7 @@
 Client web du projet Auction, développé en Angular 21 avec une architecture basée sur les Signals (state réactif) et des mises à jour temps réel via WebSocket (STOMP).
 
 [![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev) [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![WebSocket](https://img.shields.io/badge/WebSocket-STOMP-orange)]()
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Max-Rougeux/auction-angular-client)
 
 ---
 
@@ -10,7 +11,9 @@ Client web du projet Auction, développé en Angular 21 avec une architecture ba
 
 Serveur REST du projet, développé en Spring Boot 4 / Java 21, avec sécurité JWT (refresh token rotatif) et persistance multi-profils (mock, JDBC, JPA).
 
+[![Java](https://img.shields.io/badge/Java-21-orange)](https://openjdk.org/projects/jdk/21/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.6-brightgreen)](https://github.com/Max-Rougeux/auction-spring-api)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Max-Rougeux/auction-spring-api)
 
 ---
 
